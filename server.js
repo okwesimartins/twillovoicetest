@@ -34,8 +34,8 @@ async function startCallAndBridge({ to, bridgeTo, message }) {
 app.get('/call-test', async (req, res) => {
   try {
     await startCallAndBridge({
-      to: '+2348028882987',            // person A
-      bridgeTo: '+2348074511396',      // person B
+      to: '+2348074511396',            // person A
+      bridgeTo: '+2348032814813',      // person B
       message: 'Hello, this is the EVADE device. An accident has just occurred. I will now connect you to the victim. Please hold.'
     });
     res.send('Call started');
