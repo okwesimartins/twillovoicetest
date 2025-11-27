@@ -1,14 +1,28 @@
 {
 
   "name": "twillovoicetest",
+
   "version": "1.0.0",
+
   "main": "server.js",
+
   "scripts": {
+
     "start": "node server.js"
+
   },
+
   "dependencies": {
+
     "body-parser": "^2.2.1",
+
+    "cors": "^2.8.5",
+
     "express": "^5.1.0",
+
     "twilio": "^5.10.6"
+
   }
+
 }
+

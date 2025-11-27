@@ -2,9 +2,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const twilio = require('twilio');
-
+const http = require("http");
+const cors = require("cors");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(express.json());
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken  = process.env.TWILIO_AUTH_TOKEN;
@@ -66,4 +69,14 @@ app.post('/voice/entry', (req, res) => {
   res.type('text/xml');
   res.send(twiml.toString());
 });
+
+const server = http.createServer(app);
+
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, "0.0.0.0", () =>
+  console.log(
+    `🚀 Praxis Voice (Gemini+TTS+WS) listening on ${PORT}, model=${GEMINI_MODEL}`
+  )
+);
+
 
