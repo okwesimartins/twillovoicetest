@@ -41,7 +41,7 @@ app.get('/call-test', async (req, res) => {
     res.send('Call started');
   } catch (err) {
     console.error(err);
-    res.status(500).send('Error starting call');
+    res.status(500).json({"message":err});
   }
 });
 
@@ -75,7 +75,7 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, "0.0.0.0", () =>
   console.log(
-    `🚀 Praxis Voice (Gemini+TTS+WS) listening on ${PORT}, model=${GEMINI_MODEL}`
+    `🚀 Praxis Voice (Gemini+TTS+WS) listening on ${PORT}`
   )
 );
 
